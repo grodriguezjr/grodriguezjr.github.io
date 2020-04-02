@@ -99,7 +99,7 @@ author:
   location         : "Silicon Valley, CA"
   email            :
   links:
-    - label: "Email"
+    - label: "georgeleyvarodriguez"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:georgeleyvarodriguez@outlook.com
     - label: "Omnia Data Solutions"
@@ -108,10 +108,10 @@ author:
     #- label: "Twitter"
      # icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
-    - label: "LinkedIn"
+    - label: "georgeleyvarodriguez"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/georgeleyvarodriguez/"
-    - label: "GitHub"
+    - label: "grodriguezjr"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/grodriguezjr"
     - label: "rodriguezgeorge__"
