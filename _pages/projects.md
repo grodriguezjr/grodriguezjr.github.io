@@ -1,7 +1,7 @@
 --
 layout: archive
-permalink: /machine-learning/
+permalink: /projects/
 title: "Spreadsheet Modeling Posts"
 author_profile: true
 header:
-  image: 
+  image:
