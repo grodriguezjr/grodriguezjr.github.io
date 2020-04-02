@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "George Rodriguez"
-  avatar           : "/assets/tahoe.jpg"
+  avatar           : "/images/tahoe.jpg"
   bio              : "Data Science Portfolio"
   location         : "Silicon Valley, CA"
   email            :
@@ -114,9 +114,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/grodriguezjr"
-   # - label: "Instagram"
-    #  icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+       url: "https://instagram.com/rodriguezgeorge__"
 
 # Site Footer
 footer:
