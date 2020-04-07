@@ -7,4 +7,4 @@ header:
 ---
 
 I'm a young and aspiring data analyst who specializes in databases and spreadsheet management.
-etc., etc.
+This portfolio will have any models that I have worked on
