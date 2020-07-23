@@ -13,9 +13,14 @@ This portfolio will have any models that I have worked on
 
 
 Skills
+-Microsoft Excel     -SQL Server Management Studio
+-Time Management     -Leadership
+
+
 
 
 Professional Experience
+-
 
 
 
@@ -23,7 +28,7 @@ Professional Experience
 Education
 
 
-image: "/images/SFBay.jpg"
+
 
 
 Hobbies
