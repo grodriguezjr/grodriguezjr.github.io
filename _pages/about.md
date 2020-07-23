@@ -12,19 +12,19 @@ This portfolio will have any models that I have worked on"
 
 
 
-Skills
+"Skills"
 
 
 
 
-Professional Experience
+"Professional Experience"
 
 
 
 
 
 
-Education
+"Education"
 
 
 
@@ -32,6 +32,6 @@ image: "/images/SFBay.jpg"
 
 
 
-Hobbies
+"Hobbies"
 
 ---
