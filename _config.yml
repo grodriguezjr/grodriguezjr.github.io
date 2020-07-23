@@ -102,9 +102,9 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:georgeleyvarodriguez@outlook.com
-    - label: "Omnia Data Solutions"
-      icon: "fas fa-fw fa-link"
-      url: "https://omniadatasolutions.com"
+  #  - label: "Omnia Data Solutions"
+  #    icon: "fas fa-fw fa-link"
+  #    url: "https://omniadatasolutions.com"
     #- label: "Twitter"
      # icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -114,7 +114,7 @@ author:
     #- label: "grodriguezjr"
     #  icon: "fab fa-fw fa-github"
     #  url: "https://github.com/grodriguezjr"
-    - label: "rodriguezgeorge__"
+    - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/rodriguezgeorge__"
 
