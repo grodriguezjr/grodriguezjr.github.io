@@ -1,5 +1,6 @@
 ---
 title: "About"
+-
 permalink: /about/
 header:
 
@@ -13,8 +14,9 @@ This portfolio will have any models that I have worked on
 
 
 Skills
--Microsoft Excel     -SQL Server Management Studio
--Time Management     -Leadership
+-
+Microsoft Excel     SQL Server Management Studio
+Time Management     Leadership
 
 
 
