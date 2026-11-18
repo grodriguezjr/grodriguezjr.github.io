@@ -1,6 +1,361 @@
----
-layout: home
-author_profile: true
-header:
-  image: "/images/yosemite.jpg"
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>George L. Rodriguez, MIDS</title>
+  <meta name="description" content="George L. Rodriguez, MIDS: commercial analytics, S&amp;OP, business intelligence, and forecasting.">
+  <meta property="og:title" content="George L. Rodriguez, MIDS">
+  <meta property="og:description" content="Commercial analytics, S&amp;OP, business intelligence, and forecasting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --text: #16181d;
+      --muted: #5b6270;
+      --line: #e3e4e8;
+      --accent: #2456d6;
+      --accent-soft: #e8eefc;
+      --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 8px 24px rgba(16, 24, 40, .06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1015;
+        --surface: #161a22;
+        --text: #eceef3;
+        --muted: #9aa3b2;
+        --line: #262c38;
+        --accent: #7aa2ff;
+        --accent-soft: #1b2540;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .3);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .brand:hover { text-decoration: none; }
+    .links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+    .links a { color: var(--muted); }
+    .links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Hero */
+    header.hero { padding: 88px 0 56px; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
+      background: var(--accent-soft); padding: 5px 12px; border-radius: 999px; margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -.035em; margin: 0 0 18px; font-weight: 800; }
+    h1 .cred { color: var(--muted); font-weight: 600; }
+    .lede { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 680px; margin: 0 0 30px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+      font-weight: 600; font-size: 15px; border: 1px solid var(--line); color: var(--text); background: var(--surface);
+      cursor: pointer; font-family: inherit;
+    }
+    .btn:hover { text-decoration: none; border-color: var(--muted); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    @media (prefers-color-scheme: dark) { .btn.primary { color: #0e1015; } }
+    .btn svg { width: 16px; height: 16px; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 56px; }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow); }
+    .stat b { display: block; font-size: 28px; letter-spacing: -.03em; font-weight: 800; }
+    .stat span { font-size: 13px; color: var(--muted); }
+
+    /* Sections */
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 28px; font-weight: 700; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .skill {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+      padding: 14px 16px; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 10px;
+    }
+    .skill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+
+    /* Experience */
+    .company { margin-bottom: 44px; }
+    .company:last-child { margin-bottom: 0; }
+    .company-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 16px; }
+    .company-head h3 { margin: 0; font-size: 22px; letter-spacing: -.02em; }
+    .company-head .meta { color: var(--muted); font-size: 14px; }
+    .industry { color: var(--muted); font-weight: 500; font-size: 15px; }
+    .role {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 22px 24px; box-shadow: var(--shadow); margin-bottom: 14px;
+    }
+    .role-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 12px; }
+    .role-head h4 { margin: 0; font-size: 17px; }
+    .dates {
+      font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft);
+      padding: 3px 10px; border-radius: 999px; white-space: nowrap; align-self: flex-start;
+    }
+    .role ul { margin: 0; padding-left: 18px; }
+    .role li { margin: 8px 0; color: var(--text); font-size: 15px; }
+    .role li::marker { color: var(--muted); }
+    .role li strong { font-weight: 600; }
+
+    /* Education */
+    .edu { display: grid; gap: 14px; }
+    .edu .role h4 { font-size: 17px; }
+    .school { color: var(--muted); margin: 2px 0 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+
+    /* Contact */
+    .contact { text-align: center; padding: 72px 0; }
+    .contact h3 { font-size: clamp(26px, 4vw, 36px); letter-spacing: -.03em; margin: 0 0 12px; }
+    .contact p { color: var(--muted); margin: 0 0 26px; }
+    .contact .cta { justify-content: center; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+    @media (max-width: 720px) {
+      .links { display: none; }
+      header.hero { padding: 56px 0 40px; }
+      .stats { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
+      .role { padding: 18px; }
+    }
+
+    /* Print: produces a clean one-column resume */
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #444; --line: #ccc; --accent: #000; --accent-soft: #fff; --shadow: none; }
+      nav, .cta, .stats, .contact, footer { display: none !important; }
+      body { font-size: 11px; line-height: 1.4; }
+      header.hero { padding: 0 0 10px; }
+      .eyebrow { display: none; }
+      h1 { font-size: 26px; margin-bottom: 4px; }
+      .lede { font-size: 12px; margin-bottom: 0; }
+      .print-contact { display: block !important; font-size: 11px; margin-top: 4px; }
+      section { padding: 12px 0; }
+      h2 { margin-bottom: 8px; color: #000; }
+      .skills { grid-template-columns: repeat(3, 1fr); gap: 2px 12px; }
+      .skill { border: 0; padding: 2px 0; font-size: 11px; }
+      .role { border: 0; padding: 0; margin-bottom: 8px; break-inside: avoid; }
+      .role li { font-size: 11px; margin: 2px 0; }
+      .company { margin-bottom: 12px; }
+      .company-head { margin-bottom: 4px; }
+      .company-head h3 { font-size: 14px; }
+      .dates { padding: 0; }
+      .tag { border: 0; padding: 0 6px 0 0; }
+    }
+    .print-contact { display: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">George Rodriguez</a>
+      <div class="links">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="wrap">
+    <header class="hero">
+      <span class="eyebrow">Commercial Analytics · S&amp;OP · Business Intelligence</span>
+      <h1>George L. Rodriguez<span class="cred">, MIDS</span></h1>
+      <p class="lede">
+        Analytics and planning leader who turns sales, operations, and financial data into decisions.
+        UC Berkeley MIDS graduate with experience spanning S&amp;OP leadership, enterprise BI, data
+        warehousing, forecasting, and technology audit at PwC.
+      </p>
+      <p class="print-contact">
+        (661) 709-2166 · georgeleyvarodriguez@outlook.com · linkedin.com/in/george-rodriguez-mids
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:georgeleyvarodriguez@outlook.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email me
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/george-rodriguez-mids" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          LinkedIn
+        </a>
+        <button class="btn" type="button" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Save résumé as PDF
+        </button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>7+ yrs</b><span>Analytics, finance &amp; data</span></div>
+        <div class="stat"><b>100+</b><span>Power BI dashboards built</span></div>
+        <div class="stat"><b>20+</b><span>Data warehouse tables</span></div>
+        <div class="stat"><b>MIDS</b><span>UC Berkeley</span></div>
+      </div>
+    </header>
+
+    <section id="skills">
+      <h2>Core Skills &amp; Expertise</h2>
+      <div class="skills">
+        <div class="skill">Commercial &amp; Revenue Analytics</div>
+        <div class="skill">Sales &amp; Demand Forecasting</div>
+        <div class="skill">Predictive &amp; Statistical Modeling</div>
+        <div class="skill">Data Governance &amp; Enablement</div>
+        <div class="skill">SQL Server / T-SQL</div>
+        <div class="skill">Python / R</div>
+        <div class="skill">Power BI / Data Visualization</div>
+        <div class="skill">ETL &amp; Data Warehousing</div>
+        <div class="skill">Cross-Functional Leadership</div>
+        <div class="skill">Business Intelligence</div>
+        <div class="skill">Financial Planning &amp; Analysis</div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+
+      <div class="company">
+        <div class="company-head">
+          <h3>Vita-Pakt Citrus Products <span class="industry">· Agriculture / Manufacturing</span></h3>
+          <span class="meta">Bakersfield, CA</span>
+        </div>
+
+        <article class="role">
+          <div class="role-head">
+            <h4>Sales &amp; Operations Planning (S&amp;OP) Manager</h4>
+            <span class="dates">08/2025 – 10/2026</span>
+          </div>
+          <ul>
+            <li><strong>Commercial Strategy &amp; Leadership:</strong> Led the organization's integrated S&amp;OP process, partnering with Sales, Operations, and Finance leadership to align demand forecasts, production planning, inventory strategies, and organizational objectives.</li>
+            <li><strong>Sales &amp; Demand Forecasting:</strong> Managed enterprise demand forecasting and performance analysis across multiple product categories, evaluating customer demand, historical sales trends, seasonality, and forecast variances to support business planning.</li>
+            <li><strong>Commercial Performance Analytics:</strong> Developed analytical frameworks and performance metrics to evaluate customer contracts, sales demand, inventory positions, and operational constraints, translating findings into actionable recommendations for senior leadership.</li>
+            <li><strong>Business Planning &amp; Optimization:</strong> Identified gaps between commercial demand and operational capacity, facilitating cross-functional decisions to improve resource allocation, planning accuracy, and organizational efficiency.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h4>Senior Business Intelligence Analyst / SQL Developer</h4>
+            <span class="dates">01/2024 – 08/2025</span>
+          </div>
+          <ul>
+            <li><strong>Enterprise Analytics &amp; BI:</strong> Designed and developed more than 100 Power BI dashboards and reports, delivering self-service analytics and performance insights across Sales, Finance, Operations, and other business functions.</li>
+            <li><strong>Predictive Modeling &amp; Forecasting:</strong> Developed Python-based time-series forecasting solutions using statistical methods, including ARIMA and Holt-Winters, to analyze demand patterns, identify seasonality, and support forward-looking business decisions.</li>
+            <li><strong>Data Architecture &amp; Integration:</strong> Developed more than 20 dimensional, fact, and analytical data warehouse tables, integrating ERP and enterprise data sources to create scalable, standardized reporting solutions.</li>
+            <li><strong>Customer &amp; Product Analytics:</strong> Developed analytical tools to monitor customer demand, contracted versus actual sales volumes, product seasonality, and inventory performance to support commercial and operational planning.</li>
+            <li><strong>Business Partnership &amp; Solution Delivery:</strong> Collaborated with functional stakeholders to translate complex business requirements into analytical models, dashboards, and reporting solutions, improving access to reliable business intelligence.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="company">
+        <div class="company-head">
+          <h3>PricewaterhouseCoopers <span class="industry">· Professional Services</span></h3>
+          <span class="meta">San Jose, CA</span>
+        </div>
+
+        <article class="role">
+          <div class="role-head">
+            <h4>Data Analyst (Tech &amp; Data Audit Experienced Associate)</h4>
+            <span class="dates">07/2021 – 09/2023</span>
+          </div>
+          <ul>
+            <li><strong>Advanced Data Analytics &amp; Integration:</strong> Developed SQL, Python, and Alteryx-based extraction and transformation processes to integrate and standardize millions of financial transactions across ERP systems, relational databases, and enterprise applications.</li>
+            <li><strong>Financial Data Analysis &amp; Validation:</strong> Conducted complex reconciliations, financial data analysis, and exception testing to identify discrepancies, validate reporting accuracy, and support data-driven audit conclusions.</li>
+            <li><strong>Enterprise Systems &amp; Data Quality:</strong> Assessed ERP implementations and data migrations, validating financial data integrity, general ledger mappings, and reporting consistency across enterprise environments.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h4>Information Technology Audit Associate</h4>
+            <span class="dates">08/2019 – 06/2021</span>
+          </div>
+          <ul>
+            <li><strong>IT Controls &amp; Risk Assessment:</strong> Evaluated IT general controls across access management, change management, and computer operations to assess the reliability of systems supporting financial reporting.</li>
+            <li><strong>Client &amp; Engagement Support:</strong> Partnered with client IT, finance, and audit teams to gather evidence, resolve control exceptions, and communicate findings within engagement timelines.</li>
+            <li><strong>Technology Audit Documentation:</strong> Prepared clear testing documentation, process narratives, control matrices, and findings to support audit conclusions and engagement reviews.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="company">
+        <div class="company-head">
+          <h3>Ruiz Foods <span class="industry">· Manufacturing</span></h3>
+          <span class="meta">Dinuba, CA</span>
+        </div>
+
+        <article class="role">
+          <div class="role-head">
+            <h4>FP&amp;A Analyst (Financial Planning &amp; Analysis Intern)</h4>
+            <span class="dates">05/2018 – 06/2019</span>
+          </div>
+          <ul>
+            <li><strong>Revenue Forecasting:</strong> Managed revenue forecasts for new and innovation products, partnering with Sales, Marketing, and Demand Planning to capture assumptions, expected volumes, launch timing, and financial impact.</li>
+            <li><strong>Innovation Tracking &amp; Modeling:</strong> Maintained and updated a centralized forecasting model for innovation items, tracking projected revenue, demand changes, product status, and key commercial assumptions.</li>
+            <li><strong>Cross-Functional Planning:</strong> Facilitated monthly innovation review meetings with Sales, Marketing, Demand Planning, and Finance to review forecast changes, resolve discrepancies, and obtain department-head approvals.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <article class="role">
+          <h4>Master of Information and Data Science (MIDS)</h4>
+          <p class="school">University of California, Berkeley</p>
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Applied Statistics</span>
+            <span class="tag">Data Engineering</span>
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Experimental Design</span>
+            <span class="tag">Time Series Forecasting</span>
+            <span class="tag">Data Ethics &amp; Privacy</span>
+          </div>
+        </article>
+        <article class="role">
+          <h4>B.S. in Business Administration, Concentration in Data Analytics</h4>
+          <p class="school" style="margin-bottom:0">California State University, Fresno</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Let's talk data.</h3>
+      <p>(661) 709-2166 · <a href="mailto:georgeleyvarodriguez@outlook.com">georgeleyvarodriguez@outlook.com</a></p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:georgeleyvarodriguez@outlook.com">Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/george-rodriguez-mids" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="yr">2026</span> George L. Rodriguez</div>
+  </footer>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
